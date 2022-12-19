@@ -31,7 +31,7 @@ CREATE TABLE `order`
     `persons_number`     int NOT NULL,
     `number_of_products` int NOT NULL,
     `products`           varchar(255) DEFAULT NULL,
-    `price`              int NOT NULL,
+    `total_price`        int NOT NULL,
     PRIMARY KEY (`id`)
 );
 
