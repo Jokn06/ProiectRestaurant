@@ -3,7 +3,8 @@ package org.example.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.exception.BusinessException;
-import org.example.repository.entity.Person;
+import org.example.entity.Person;
+import org.example.mapper.PersonMapper;
 import org.example.model.PersonRequest;
 import org.example.model.PersonResponse;
 import org.example.repository.PersonRepository;
@@ -18,7 +19,7 @@ import java.util.List;
 public class PersonService {
 
     private final PersonRepository personRepository;
-    private final PersonRepository personMapper;
+    private final PersonMapper personMapper;
 
     public List<PersonResponse> findAll() {
         return personMapper.map(personRepository.findAll());
@@ -28,8 +29,9 @@ public class PersonService {
         return personMapper.map(personRepository.save(personMapper.map(personRequest)));
     }
 
-    public Person findById(Integer id) {
-        return personRepository.findById(id).orElseThrow(() -> new BusinessException("Cannot find person with ID" + id));
+    public PersonResponse findById(Integer id) {
+        Person person = personRepository.findById(id).orElseThrow(() -> new BusinessException("Cannot find person with ID" + id));
+        return personMapper.map(person);
     }
 
     public void deleteById(Integer id) {

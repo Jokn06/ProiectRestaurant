@@ -1,4 +1,4 @@
-package org.example.repository.entity;
+package org.example.entity;
 
 import lombok.*;
 
@@ -18,12 +18,9 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
-    private String email;
+
     private String name;
 
 
-    public Person save(Person person) {
-    return null;
-    }
+
 }
