@@ -1,5 +1,5 @@
-package org.example.entity;
-
-public class Product {
-
-}
+//package org.example.entity;
+//
+//public class Product {
+//
+//}

@@ -21,6 +21,16 @@ public class PersonService {
     private final PersonRepository personRepository;
     private final PersonMapper personMapper;
 
+    public PersonResponse createPerson(PersonRequest personRequest) {
+        Person person = personMapper.map(personRequest);
+        return personMapper.map(personRepository.save(person));
+    }
+
+    public List<PersonResponse> getAllPersons() {
+
+        return personMapper.map(personRepository.findAll());
+    }
+
     public List<PersonResponse> findAll() {
         return personMapper.map(personRepository.findAll());
     }
@@ -32,6 +42,14 @@ public class PersonService {
     public PersonResponse findById(Integer id) {
         Person person = personRepository.findById(id).orElseThrow(() -> new BusinessException("Cannot find person with ID" + id));
         return personMapper.map(person);
+    }
+
+    public void updatePersonName(Integer id, PersonRequest personRequest) {
+        Person personToUpdate = personRepository.findById(personRequest.getId()).orElseThrow(
+                () -> new BusinessException(String.format("Person with id: %s is not found", id))
+        );
+        personToUpdate.setName(personRequest.getName());
+
     }
 
     public void deleteById(Integer id) {

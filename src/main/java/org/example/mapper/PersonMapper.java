@@ -8,12 +8,15 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 import java.util.List;
+
 @Mapper(componentModel = "spring")
 @ComponentScan
 public interface PersonMapper {
 
-    Person map (PersonRequest personRequest);
+    Person map(PersonRequest personRequest);
+
     PersonResponse map(Person person);
-  List<PersonResponse> map(List<Person> all);
+
+    List<PersonResponse> map(List<Person> all);
 
 }

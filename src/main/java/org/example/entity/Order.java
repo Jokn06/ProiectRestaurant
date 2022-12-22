@@ -26,5 +26,9 @@ public class Order {
     @NotBlank
     private Integer personsNumber;
 
+    @NotBlank
+    private String product;
 
-}
+    @NotBlank
+    private Integer price;
+ }

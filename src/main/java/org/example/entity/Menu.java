@@ -1,4 +1,4 @@
-package org.example.entity;
-
-public class Menu {
-}
+//package org.example.entity;
+//
+//public class Menu {
+//}
