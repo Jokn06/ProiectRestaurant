@@ -16,7 +16,7 @@ CREATE TABLE `person`
     PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `menu`
+CREATE TABLE `product`
 (
     `id`          int NOT NULL AUTO_INCREMENT,
     `product`     varchar(255) DEFAULT NULL,

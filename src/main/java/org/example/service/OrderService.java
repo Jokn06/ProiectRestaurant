@@ -2,13 +2,11 @@ package org.example.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.entity.Order;
-import org.example.entity.Person;
+
 import org.example.exception.BusinessException;
 import org.example.mapper.OrderMapper;
 import org.example.model.OrderRequest;
 import org.example.model.OrderResponse;
-import org.example.model.PersonRequest;
-import org.example.model.PersonResponse;
 import org.example.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 

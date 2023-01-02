@@ -32,6 +32,7 @@ public class PersonService {
     }
 
     public List<PersonResponse> findAll() {
+
         return personMapper.map(personRepository.findAll());
     }
 

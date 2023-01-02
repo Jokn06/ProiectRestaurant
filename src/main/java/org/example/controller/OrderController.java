@@ -3,8 +3,6 @@ package org.example.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.model.OrderRequest;
 import org.example.model.OrderResponse;
-import org.example.model.PersonRequest;
-import org.example.model.PersonResponse;
 import org.example.service.OrderService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +34,7 @@ public class OrderController {
 
         return orderService.findById(id);
     }
+
     @PatchMapping("update/{id}")
     public void updatePersonById(@PathVariable Integer id, @RequestBody @Valid OrderRequest orderRequest) {
         orderService.updateOrder(id, orderRequest);
@@ -49,4 +48,4 @@ public class OrderController {
 }
 
 
-}
+
