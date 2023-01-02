@@ -18,7 +18,7 @@ import javax.validation.constraints.Positive;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Menu {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

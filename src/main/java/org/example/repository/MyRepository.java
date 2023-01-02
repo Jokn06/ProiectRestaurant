@@ -1,7 +1,7 @@
 package org.example.repository;
 
 import lombok.RequiredArgsConstructor;
-import org.example.entity.Menu;
+import org.example.entity.Product;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -13,8 +13,8 @@ public class MyRepository {
 
     private final EntityManager entityManager;
 
-    public List<Menu> findByProductName(String name) {
-       return entityManager.createQuery("select t from Menu t where t.productName=:name", Menu.class)
+    public List<Product> findByProductName(String name) {
+       return entityManager.createQuery("select t from Product t where t.productName=:name", Product.class)
                .setParameter("name", name)
                .getResultList();
     }

@@ -1,9 +1,9 @@
-package org.example.model;
+package org.example.model.order;
 
 import lombok.Data;
 
 @Data
-public class OrderResponse {
+public class OrderRequest {
 
     private Integer id;
     private Integer personsNumber;

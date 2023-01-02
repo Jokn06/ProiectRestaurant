@@ -1,4 +1,4 @@
-package org.example.model.menu;
+package org.example.model.product;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 @Data
-public class MenuRequest {
+public class ProductRequest {
 
     private Integer id;
 

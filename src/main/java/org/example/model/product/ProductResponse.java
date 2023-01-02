@@ -1,9 +1,9 @@
-package org.example.model.menu;
+package org.example.model.product;
 
 import lombok.Data;
 
 @Data
-public class MenuResponse {
+public class ProductResponse {
 
     private Integer id;
     private String productName;

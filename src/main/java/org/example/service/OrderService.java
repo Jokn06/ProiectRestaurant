@@ -5,8 +5,8 @@ import org.example.entity.Order;
 
 import org.example.exception.BusinessException;
 import org.example.mapper.OrderMapper;
-import org.example.model.OrderRequest;
-import org.example.model.OrderResponse;
+import org.example.model.order.OrderRequest;
+import org.example.model.order.OrderResponse;
 import org.example.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 

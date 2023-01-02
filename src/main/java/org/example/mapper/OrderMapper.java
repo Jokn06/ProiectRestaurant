@@ -1,8 +1,8 @@
 package org.example.mapper;
 
 import org.example.entity.Order;
-import org.example.model.OrderRequest;
-import org.example.model.OrderResponse;
+import org.example.model.order.OrderRequest;
+import org.example.model.order.OrderResponse;
 import org.mapstruct.Mapper;
 import org.springframework.context.annotation.ComponentScan;
 
