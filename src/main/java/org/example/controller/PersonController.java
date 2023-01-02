@@ -1,8 +1,8 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.model.PersonRequest;
-import org.example.model.PersonResponse;
+import org.example.model.person.PersonRequest;
+import org.example.model.person.PersonResponse;
 import org.example.service.PersonService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

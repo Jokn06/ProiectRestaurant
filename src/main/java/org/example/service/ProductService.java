@@ -6,6 +6,8 @@ import org.example.exception.BusinessException;
 import org.example.mapper.ProductMapper;
 import org.example.model.product.ProductRequest;
 import org.example.model.product.ProductResponse;
+import org.example.model.product.UpdateName;
+import org.example.model.product.UpdatePrice;
 import org.example.repository.ProductRepository;
 import org.example.repository.MyRepository;
 import org.springframework.stereotype.Service;
@@ -55,6 +57,27 @@ public class ProductService {
             productListForResponse.add(productResponse);
         }
         return productListForResponse;
+    }
+
+    public void updateProductName(UpdateName updateName) {
+        Product productToUpdate = productRepository.findById(updateName.getId()).orElseThrow(()
+                -> new BusinessException(String.format("The product with id: %s not exist! ", updateName.getId()))
+        );
+         productToUpdate.setProductName(updateName.getProductName());
+    }
+
+    public void updateProductPrice(UpdatePrice updatePrice) {
+        Product productToUpdate = productRepository.findById(updatePrice.getId()).orElseThrow(()
+        -> new BusinessException(String.format("The product with id: %s not exist!",updatePrice.getId()))
+        );
+        productToUpdate.setPrice(updatePrice.getProductPrice());
+    }
+
+    public void deleteProduct(Integer id) {
+        Product productToDelete = productRepository.findById(id).orElseThrow(()
+        -> new BusinessException(String.format("The product with id: %s not exist", id))
+        );
+    productRepository.delete(productToDelete);
     }
 
 

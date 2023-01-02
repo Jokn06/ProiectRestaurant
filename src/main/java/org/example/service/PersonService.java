@@ -5,8 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.example.exception.BusinessException;
 import org.example.entity.Person;
 import org.example.mapper.PersonMapper;
-import org.example.model.PersonRequest;
-import org.example.model.PersonResponse;
+import org.example.model.person.PersonRequest;
+import org.example.model.person.PersonResponse;
 import org.example.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
