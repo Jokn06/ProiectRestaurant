@@ -32,7 +32,7 @@ public class ProductService {
         return productMapper.map(productRepository.save(product));
     }
 
-    public List<ProductResponse> allProduct() {
+    public List<ProductResponse> allProducts() {
         return productMapper.map(productRepository.findAll());
     }
 
@@ -63,23 +63,22 @@ public class ProductService {
         Product productToUpdate = productRepository.findById(updateName.getId()).orElseThrow(()
                 -> new BusinessException(String.format("The product with id: %s not exist! ", updateName.getId()))
         );
-         productToUpdate.setProductName(updateName.getProductName());
+        productToUpdate.setProductName(updateName.getProductName());
     }
 
     public void updateProductPrice(UpdatePrice updatePrice) {
         Product productToUpdate = productRepository.findById(updatePrice.getId()).orElseThrow(()
-        -> new BusinessException(String.format("The product with id: %s not exist!",updatePrice.getId()))
+                -> new BusinessException(String.format("The product with id: %s not exist!", updatePrice.getId()))
         );
         productToUpdate.setPrice(updatePrice.getProductPrice());
     }
 
     public void deleteProduct(Integer id) {
         Product productToDelete = productRepository.findById(id).orElseThrow(()
-        -> new BusinessException(String.format("The product with id: %s not exist", id))
+                -> new BusinessException(String.format("The product with id: %s not exist", id))
         );
-    productRepository.delete(productToDelete);
+        productRepository.delete(productToDelete);
     }
-
 
 
 }

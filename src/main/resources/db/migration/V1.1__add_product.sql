@@ -1,0 +1,10 @@
+INSERT INTO products(product,description, price) VALUES ("supa pui","fel 1", 12);
+INSERT INTO products(product,description, price) VALUES ("supa vita","fel 1", 14);
+INSERT INTO products(product,description, price) VALUES ("supa porc","fel 1", 13);
+INSERT INTO products(product,description, price) VALUES ("burata","fel 1", 15);
+INSERT INTO products(product,description, price) VALUES ("piept pui","fel 2", 18);
+INSERT INTO products(product,description, price) VALUES ("muschi vita","fel 2", 25);
+INSERT INTO products(product,description, price) VALUES ("muschiulet port","fel 2", 20);
+INSERT INTO products(product,description, price) VALUES ("paste carbonara","fel 2", 21);
+INSERT INTO products(product,description, price) VALUES ("cartofi prajiti","garnitura", 12);
+INSERT INTO products(product,description, price) VALUES ("tiramisu","desert", 12);
