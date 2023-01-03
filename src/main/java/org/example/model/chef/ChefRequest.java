@@ -1,36 +1,31 @@
-package org.example.entity;
-
+package org.example.model.chef;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
 
-@Entity
-@Getter
-@Setter
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Chef {
+public class ChefRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
 
-    @NotBlank
+    @NotBlank(message = "Invalid first name!")
     private String firstName;
 
-    @NotBlank
+    @NotBlank(message = "Invalid last name!")
     private String lastName;
 
-    @NotBlank
+    @NotBlank(message = "Invalid address name!")
     private String address;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
@@ -43,5 +38,4 @@ public class Chef {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @Past(message = "Hire date must be less that today")
     private LocalDate hireDate;
-
 }

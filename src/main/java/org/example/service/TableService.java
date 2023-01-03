@@ -9,4 +9,10 @@ import javax.transaction.Transactional;
 @RequiredArgsConstructor
 @Transactional
 public class TableService {
+
+
+
+
+
+
 }

@@ -1,6 +1,7 @@
 package org.example.repository;
 
 import lombok.RequiredArgsConstructor;
+import org.example.entity.Chef;
 import org.example.entity.Product;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +20,10 @@ public class MyRepository {
                .getResultList();
     }
 
+
+    public List<Chef> findByChefName(String firstName) {
+        return entityManager.createQuery("select t from Chef t where t.firstName=:firstName", Chef.class)
+                .setParameter("firstName", firstName)
+                .getResultList();
+    }
 }
