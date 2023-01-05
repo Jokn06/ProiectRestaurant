@@ -1,12 +1,9 @@
 package org.example.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.entity.Order;
 import org.example.entity.Table;
 import org.example.exception.BusinessException;
 import org.example.mapper.TableMapper;
-import org.example.model.order.OrderRequest;
-import org.example.model.order.OrderResponse;
 import org.example.model.table.TableRequest;
 import org.example.model.table.TableResponse;
 import org.example.repository.TableRepository;

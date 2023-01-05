@@ -1,8 +1,6 @@
 package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.model.order.OrderRequest;
-import org.example.model.order.OrderResponse;
 import org.example.model.table.TableRequest;
 import org.example.model.table.TableResponse;
 import org.example.service.TableService;

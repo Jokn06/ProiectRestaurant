@@ -1,11 +1,9 @@
 package org.example.entity;
 
 import lombok.*;
+import org.hibernate.envers.Audited;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -14,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Audited
 public class Person {
 
     @Id
@@ -26,5 +25,7 @@ public class Person {
     @NotBlank
     private Integer table;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Table tables;
 
 }

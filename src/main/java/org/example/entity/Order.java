@@ -4,11 +4,9 @@ package org.example.entity;
 import lombok.*;
 import org.hibernate.envers.Audited;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Audited
@@ -31,4 +29,14 @@ public class Order {
 
     @NotBlank
     private Integer price;
+
+  @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "order")
+    private List<Product> products;
+
+//
+//  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+//    @JoinTable(name = "order_services",
+//            joinColumns = {@JoinColumn(name= "chef_id", referencedColumnName = "id")},
+//            inverseJoinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
+
  }
