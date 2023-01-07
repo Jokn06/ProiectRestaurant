@@ -52,7 +52,8 @@ public class ProductService {
             ProductResponse productResponse = new ProductResponse();
             productResponse.setId(product.getId());
             productResponse.setPrice(product.getPrice());
-            productResponse.setProductName(product.getProductName());
+            productResponse.setName(product.getName());
+            productResponse.setDescription(product.getDescription());
             productResponse.setWeight(product.getWeight());
             productListForResponse.add(productResponse);
         }
@@ -63,7 +64,7 @@ public class ProductService {
         Product productToUpdate = productRepository.findById(updateName.getId()).orElseThrow(()
                 -> new BusinessException(String.format("The product with id: %s not exist! ", updateName.getId()))
         );
-        productToUpdate.setProductName(updateName.getProductName());
+        productToUpdate.setName(updateName.getName());
     }
 
     public void updateProductPrice(UpdatePrice updatePrice) {

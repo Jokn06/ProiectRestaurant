@@ -10,6 +10,6 @@ public class UpdateName {
     private Integer id;
 
     @NotBlank
-    private String productName;
+    private String name;
 
 }

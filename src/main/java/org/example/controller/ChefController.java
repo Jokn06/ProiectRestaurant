@@ -23,7 +23,6 @@ public class ChefController {
         return chefService.createChef(chefRequest);
     }
 
-
     @GetMapping("/list")
     public List<ChefResponse> showAllChefs() {
         return chefService.allChefs();

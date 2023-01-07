@@ -6,7 +6,7 @@ import lombok.Data;
 public class OrderRequest {
 
     private Integer id;
-    private Integer personsNumber;
+    private Integer personNumber;
     private String product;
     private Integer price;
 }

@@ -10,7 +10,7 @@ public class OrderResponse {
     private Integer id;
 
     @NotBlank
-    private Integer personsNumber;
+    private Integer personNumber;
 
     @NotBlank
     private String product;

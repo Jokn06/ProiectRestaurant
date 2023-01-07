@@ -5,33 +5,25 @@ import lombok.*;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import java.util.List;
+import javax.persistence.Table;
 
 @Entity
-@Audited
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "t_order")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank
-    private Integer personsNumber;
 
-    @NotBlank
-    private String product;
-
-    @NotBlank
-    private Integer price;
-
-  @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "order")
-    private List<Product> products;
+//  @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "order")
+//  @Builder.Default
+//    private List<Product> products = new ArrayList<>();
 
 //
 //  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})

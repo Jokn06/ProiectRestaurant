@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -25,17 +26,11 @@ public class ChefRequest {
     @NotBlank(message = "Invalid last name!")
     private String lastName;
 
-    @NotBlank(message = "Invalid address name!")
-    private String address;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    @Past(message = "BirthDay must be less that today")
-    private LocalDate birthDay;
 
     @NotBlank
     private String phoneNumber;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @Past(message = "Hire date must be less that today")
-    private LocalDate hireDate;
+    private LocalDateTime hireDate;
 }

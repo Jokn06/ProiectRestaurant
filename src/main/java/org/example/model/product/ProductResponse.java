@@ -6,7 +6,8 @@ import lombok.Data;
 public class ProductResponse {
 
     private Integer id;
-    private String productName;
+    private String name;
+    private String description;
     private Integer price;
     private String weight ;
 

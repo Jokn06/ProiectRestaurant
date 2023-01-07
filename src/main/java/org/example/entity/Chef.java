@@ -9,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,6 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Audited
 public class Chef {
 
     @Id
@@ -32,20 +32,13 @@ public class Chef {
     private String lastName;
 
     @NotBlank
-    private String address;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    @Past(message = "BirthDay must be less that today")
-    private LocalDate birthDay;
-
-    @NotBlank
     private String phoneNumber;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @Past(message = "Hire date must be less that today")
-    private LocalDate hireDate;
+    private LocalDateTime hireDate;
 
-    @ManyToMany(mappedBy = "chefs")
-    private List<Order> orders = new ArrayList<>();
+//    @ManyToMany(mappedBy = "chef")
+//    private List<Order> orders = new ArrayList<>();
 
 }

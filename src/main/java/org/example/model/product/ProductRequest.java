@@ -12,7 +12,10 @@ public class ProductRequest {
     private Integer id;
 
     @NotBlank
-    private String productName;
+    private String name;
+
+    @NotBlank
+    private String description;
 
     @NotNull
     @Positive

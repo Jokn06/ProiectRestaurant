@@ -16,11 +16,11 @@ public class TableRequest {
 
     private Integer id;
 
-    @NotBlank(message = "Invalid table number!")
-    private Integer number;
+    @NotBlank(message = "Invalid table name!")
+    private String name;
 
-    @NotBlank(message = "Invalid seats!")
+    @NotBlank(message = "Invalid capacity!")
     @Positive
-    private Integer seat;
+    private Integer capacity;
 
 }

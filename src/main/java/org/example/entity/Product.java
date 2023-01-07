@@ -15,7 +15,6 @@ import javax.validation.constraints.Positive;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Audited
 public class Product {
 
     @Id
@@ -23,18 +22,19 @@ public class Product {
     private Integer id;
 
     @NotBlank
-    private String productName;
+    private String name;
 
     @NotNull
     @Positive
     private Integer price;
 
     @NotNull
+    private String description;
+
+    @NotNull
     @Positive
     private String weight ;
 
-   @ManyToOne(fetch = FetchType.LAZY)
-    private Order order;
 
 
 

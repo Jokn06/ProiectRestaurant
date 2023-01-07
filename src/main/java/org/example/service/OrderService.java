@@ -40,9 +40,7 @@ public class OrderService {
         Order orderToUpdate = orderRepository.findById(orderRequest.getId()).orElseThrow(
                 () -> new BusinessException(String.format("Order with id: %s is not found", id))
         );
-        orderToUpdate.setProduct(orderRequest.getProduct());
-        orderToUpdate.setPrice(orderRequest.getPrice());
-        orderToUpdate.setPersonsNumber(orderRequest.getPersonsNumber());
+        orderToUpdate.setId(orderRequest.getId());
     }
 
     public void deleteById(Integer id) {

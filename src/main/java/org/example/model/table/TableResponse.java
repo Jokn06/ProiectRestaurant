@@ -6,6 +6,6 @@ import lombok.Data;
 public class TableResponse {
 
     private Integer id;
-    private Integer number;
-    private Integer seat;
+    private String name;
+    private Integer capacity;
 }

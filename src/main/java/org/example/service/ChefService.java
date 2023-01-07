@@ -62,8 +62,6 @@ public class ChefService {
         for (Chef chef : chefListFromDB) {
             ChefResponse chefResponse = new ChefResponse();
             chefResponse.setId(chef.getId());
-            chefResponse.setAddress(chef.getAddress());
-            chefResponse.setBirthDay(chef.getBirthDay());
             chefResponse.setFirstName(chef.getFirstName());
             chefResponse.setLastName(chef.getLastName());
             chefResponse.setHireDate(chef.getHireDate());
@@ -80,10 +78,8 @@ public class ChefService {
                         String.format("The chef with id: %s not exist", chefRequest.getId())
                 )
         );
-        chefToUpdate.setAddress(chefRequest.getAddress());
         chefToUpdate.setFirstName(chefRequest.getFirstName());
         chefToUpdate.setLastName(chefRequest.getLastName());
-        chefToUpdate.setBirthDay(chefRequest.getBirthDay());
         chefToUpdate.setPhoneNumber(chefRequest.getPhoneNumber());
         chefToUpdate.setHireDate(chefRequest.getHireDate());
     }

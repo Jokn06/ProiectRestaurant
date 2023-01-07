@@ -40,8 +40,8 @@ public class TableService {
                 () -> new BusinessException(String.format("Table with id: %s is not found", id))
         );
         tableToUpdate.setId(tableRequest.getId());
-        tableToUpdate.setNumber(tableRequest.getNumber());
-        tableToUpdate.setSeat(tableRequest.getSeat());
+        tableToUpdate.setName(tableRequest.getName());
+        tableToUpdate.setCapacity(tableRequest.getCapacity());
     }
 
     public void deleteById(Integer id) {
