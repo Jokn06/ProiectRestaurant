@@ -6,8 +6,8 @@ import org.example.exception.BusinessException;
 import org.example.mapper.ProductMapper;
 import org.example.model.product.ProductRequest;
 import org.example.model.product.ProductResponse;
+import org.example.model.product.RequestUpdatePrice;
 import org.example.model.product.UpdateName;
-import org.example.model.product.UpdatePrice;
 import org.example.repository.ProductRepository;
 import org.example.repository.MyRepository;
 import org.springframework.stereotype.Service;
@@ -67,11 +67,11 @@ public class ProductService {
         productToUpdate.setName(updateName.getName());
     }
 
-    public void updateProductPrice(UpdatePrice updatePrice) {
-        Product productToUpdate = productRepository.findById(updatePrice.getId()).orElseThrow(()
-                -> new BusinessException(String.format("The product with id: %s not exist!", updatePrice.getId()))
+    public void updateProductPrice(RequestUpdatePrice requestUpdatePrice) {
+        Product productToUpdate = productRepository.findById(requestUpdatePrice.getId()).orElseThrow(()
+                -> new BusinessException(String.format("The product with id: %s not exist!", requestUpdatePrice.getId()))
         );
-        productToUpdate.setPrice(updatePrice.getProductPrice());
+        productToUpdate.setPrice(requestUpdatePrice.getProductPrice());
     }
 
     public void deleteProduct(Integer id) {

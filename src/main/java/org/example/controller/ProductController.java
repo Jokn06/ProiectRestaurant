@@ -4,8 +4,8 @@ package org.example.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.model.product.ProductRequest;
 import org.example.model.product.ProductResponse;
+import org.example.model.product.RequestUpdatePrice;
 import org.example.model.product.UpdateName;
-import org.example.model.product.UpdatePrice;
 import org.example.service.ProductService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -48,8 +48,8 @@ public class ProductController {
 
 
     @PatchMapping("update-price")
-    public void updatePrice(@RequestBody @Valid UpdatePrice updatePrice) {
-        productService.updateProductPrice(updatePrice);
+    public void updatePrice(@RequestBody @Valid RequestUpdatePrice requestUpdatePrice) {
+        productService.updateProductPrice(requestUpdatePrice);
     }
 
     @DeleteMapping("delete-id/{id}")

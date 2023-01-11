@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+
 @javax.persistence.Table (name = "t_table")
 @Entity
 @Getter

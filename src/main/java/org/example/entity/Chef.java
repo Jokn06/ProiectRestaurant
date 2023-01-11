@@ -38,7 +38,5 @@ public class Chef {
     @Past(message = "Hire date must be less that today")
     private LocalDateTime hireDate;
 
-//    @ManyToMany(mappedBy = "chef")
-//    private List<Order> orders = new ArrayList<>();
 
 }

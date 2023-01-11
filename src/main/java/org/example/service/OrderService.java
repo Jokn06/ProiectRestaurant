@@ -26,6 +26,7 @@ public class OrderService {
         Order order = orderMapper.map(orderRequest);
         return orderMapper.map(orderRepository.save(order));
     }
+
     public List<OrderResponse> getAllOrders() {
 
         return orderMapper.map(orderRepository.findAll());
@@ -47,6 +48,4 @@ public class OrderService {
         Order order = orderRepository.findById(id).orElseThrow(() -> new BusinessException("Cannot find the order with ID" + id));
         orderRepository.delete(order);
     }
-
-
 }

@@ -29,7 +29,7 @@ public class TableController {
         return tableService.getAllTables();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("findById/{id}")
     public TableResponse findById(@PathVariable("id") Integer id) {
 
         return tableService.findById(id);
@@ -40,7 +40,7 @@ public class TableController {
         tableService.update(id, tableRequest);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("delete/{id}")
     public void deleteById(@PathVariable Integer id) {
         tableService.deleteById(id);
     }

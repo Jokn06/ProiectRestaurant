@@ -6,6 +6,9 @@ import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.PastOrPresent;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -19,6 +22,20 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+
+    @PastOrPresent(message = "Please check the date")
+    @Column(name = "order_date")
+    private LocalDateTime orderDate;
+
+    @PastOrPresent(message = "Please check the date")
+    @Column(name = "order_completed")
+    private LocalDateTime orderCompleted;
+
+//    @ManyToOne
+//    @Column(name = "table_id" )
+//    private Table table;
+
 
 
 //  @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "order")

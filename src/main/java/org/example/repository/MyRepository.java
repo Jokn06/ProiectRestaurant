@@ -15,7 +15,7 @@ public class MyRepository {
     private final EntityManager entityManager;
 
     public List<Product> findByProductName(String name) {
-       return entityManager.createQuery("select t from Product t where t.productName=:name", Product.class)
+       return entityManager.createQuery("select t from Product t where t.name=:name", Product.class)
                .setParameter("name", name)
                .getResultList();
     }
