@@ -19,8 +19,8 @@ public class TableRequest {
     @NotBlank(message = "Invalid table name!")
     private String name;
 
-    @NotBlank(message = "Invalid capacity!")
-    @Positive
+//    @NotBlank(message = "Invalid capacity!")
+//    @Positive
     private Integer capacity;
 
 }

@@ -17,12 +17,12 @@ public class ProductRequest {
     @NotBlank
     private String description;
 
-    @NotNull
+//    @NotNull
     @Positive
     private Integer price;
 
     @NotNull
     @Positive
-    private String weight ;
+    private String weight;
 
 }

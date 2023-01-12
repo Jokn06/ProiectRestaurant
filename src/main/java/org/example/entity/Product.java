@@ -24,7 +24,7 @@ public class Product {
     @NotBlank
     private String name;
 
-    @NotNull
+//    @NotNull
     @Positive
     private Integer price;
 

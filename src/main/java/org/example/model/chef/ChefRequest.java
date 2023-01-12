@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
@@ -30,7 +31,7 @@ public class ChefRequest {
     @NotBlank
     private String phoneNumber;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Past(message = "Hire date must be less that today")
     private LocalDateTime hireDate;
 }

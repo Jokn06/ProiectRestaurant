@@ -4,6 +4,7 @@ package org.example.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.envers.Audited;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -34,7 +35,7 @@ public class Chef {
     @NotBlank
     private String phoneNumber;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Past(message = "Hire date must be less that today")
     private LocalDateTime hireDate;
 

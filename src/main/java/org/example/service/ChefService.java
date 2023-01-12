@@ -27,6 +27,7 @@ public class ChefService {
 
     public ChefResponse createChef(ChefRequest chefRequest) {
         checkDuplicate(chefRequest);
+        validatePhoneNumber(chefRequest.getPhoneNumber());
         Chef chef = chefMapper.map(chefRequest);
         return chefMapper.map(chefRepository.save(chef));
     }
@@ -53,25 +54,48 @@ public class ChefService {
     }
 
     public List<ChefResponse> findByName(String name) {
+        if (name.isBlank()) {
+            throw new IllegalArgumentException("Invalid name");
+        }
         List<Chef> listFromDB = myRepository.findByChefName(name);
-        return createChefList(listFromDB);
-    }
-
-    static List<ChefResponse> createChefList(List<Chef> chefListFromDB) {
         List<ChefResponse> chefListForResponse = new ArrayList<>();
-        for (Chef chef : chefListFromDB) {
-            ChefResponse chefResponse = new ChefResponse();
-            chefResponse.setId(chef.getId());
-            chefResponse.setFirstName(chef.getFirstName());
-            chefResponse.setLastName(chef.getLastName());
-            chefResponse.setHireDate(chef.getHireDate());
-            chefResponse.setPhoneNumber(chef.getPhoneNumber());
+        for (Chef chef : listFromDB) {
+            ChefResponse chefResponse = createChefResponse(chef);
+            chefListForResponse.add(chefResponse);
+        }
+        if (chefListForResponse.isEmpty()) {
+            throw new BusinessException("Chef not found!");
         }
         return chefListForResponse;
     }
 
+
+//    static List<ChefResponse> createChefList(List<Chef> chefListFromDB) {
+//        List<ChefResponse> chefListForResponse = new ArrayList<>();
+//        for (Chef chef : chefListFromDB) {
+//            ChefResponse chefResponse = new ChefResponse();
+//            chefResponse.setId(chef.getId());
+//            chefResponse.setFirstName(chef.getFirstName());
+//            chefResponse.setLastName(chef.getLastName());
+//            chefResponse.setHireDate(chef.getHireDate());
+//            chefResponse.setPhoneNumber(chef.getPhoneNumber());
+//        }
+//        return chefListForResponse;
+
+
+     private ChefResponse createChefResponse(Chef chef) {
+        ChefResponse chefResponse = new ChefResponse();
+        chefResponse.setId(chef.getId());
+        chefResponse.setFirstName(chef.getFirstName());
+        chefResponse.setLastName(chef.getLastName());
+        chefResponse.setPhoneNumber(chef.getPhoneNumber());
+        chefResponse.setHireDate(chef.getHireDate());
+        return chefResponse;
+    }
+
+
     public void update(ChefRequest chefRequest) {
-        checkDuplicate(chefRequest);
+//        checkDuplicate(chefRequest);
         validatePhoneNumber(chefRequest.getPhoneNumber());
         Chef chefToUpdate = chefRepository.findById(chefRequest.getId()).orElseThrow(
                 () -> new BusinessException(

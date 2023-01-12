@@ -10,7 +10,7 @@ public class RequestUpdatePrice {
 
     private Integer id;
 
-    @NotNull
+//    @NotNull
     @Positive
     private Integer productPrice;
 

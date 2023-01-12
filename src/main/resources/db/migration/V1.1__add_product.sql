@@ -11,7 +11,7 @@ VALUES ("piept pui", "fel 2", 18, "180");
 INSERT INTO product(name, description, price, weight)
 VALUES ("muschi vita", "fel 2", 25, "250");
 INSERT INTO product(name, description, price, weight)
-VALUES ("muschiulet port", "fel 2", 20, "230");
+VALUES ("muschiulet porc", "fel 2", 20, "230");
 INSERT INTO product(name, description, price, weight)
 VALUES ("paste carbonara", "fel 2", 21, "300");
 INSERT INTO product(name, description, price, weight)

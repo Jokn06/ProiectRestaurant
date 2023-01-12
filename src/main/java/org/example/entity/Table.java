@@ -21,7 +21,7 @@ public class Table {
     @NotBlank
     private String name;
 
-    @NotBlank
+//    @NotBlank
     private Integer capacity;
 
 }

@@ -22,7 +22,7 @@ CREATE TABLE product
     id          int          NOT NULL AUTO_INCREMENT,
     name        varchar(255) NOT NULL,
     description varchar(255) DEFAULT NULL,
-    price       int          NOT NULL,
+    price       int          ,
     weight      varchar(255) NOT NULL,
     PRIMARY KEY (id)
 );
