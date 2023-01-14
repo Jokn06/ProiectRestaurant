@@ -1,0 +1,53 @@
+h1{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 80px;
+}
+
+form{
+    text-align: center;
+    color: whitesmoke;
+    font-size: 35px;
+}
+
+form3{
+    text-align: center;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+nav {
+    background-color: aquamarine;
+    background: fixed;
+    background-size:auto;
+    font-size: x-large;
+    margin-bottom: 1px;
+    text-align: center;
+}
+
+
+a:hover{
+    background-color: lightblue;
+}
+
+li:hover{
+    background-color: crimson;
+    padding: 2px;
+}
+
+nav2{
+    background-color: bisque;
+    font-size: xx-large;
+    text-align: center;
+    padding: 1px 700px;
+}
+
+h2.subtitlu {
+    text-align: center;
+
+}
+
+h4{
+    text-align: center;
+
+}

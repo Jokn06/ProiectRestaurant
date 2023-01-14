@@ -34,7 +34,7 @@ public class Order {
 
 //    @ManyToOne
 //    @Column(name = "table_id" )
-//    private Table table;
+//    private org.example.entity.Table table;
 
 
 

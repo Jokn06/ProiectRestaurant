@@ -71,7 +71,7 @@ public class ProductService {
         Product productToUpdate = productRepository.findById(requestUpdatePrice.getId()).orElseThrow(()
                 -> new BusinessException(String.format("The product with id: %s not exist!", requestUpdatePrice.getId()))
         );
-        productToUpdate.setPrice(requestUpdatePrice.getProductPrice());
+        productToUpdate.setPrice(requestUpdatePrice.getPrice());
     }
 
     public void deleteProduct(Integer id) {

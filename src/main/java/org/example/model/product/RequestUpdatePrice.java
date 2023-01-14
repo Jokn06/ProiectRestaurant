@@ -12,6 +12,6 @@ public class RequestUpdatePrice {
 
 //    @NotNull
     @Positive
-    private Integer productPrice;
+    private Integer price;
 
 }
