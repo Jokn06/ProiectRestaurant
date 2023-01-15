@@ -14,8 +14,8 @@ public class ProductRequest {
     @NotBlank
     private String name;
 
-    @NotBlank
-    private String description;
+//    @NotBlank
+//    private String description;
 
 //    @NotNull
     @Positive

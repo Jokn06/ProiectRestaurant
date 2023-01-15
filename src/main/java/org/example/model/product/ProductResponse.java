@@ -7,7 +7,7 @@ public class ProductResponse {
 
     private Integer id;
     private String name;
-    private String description;
+//    private String description;
     private Integer price;
     private String weight ;
 

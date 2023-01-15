@@ -2,12 +2,13 @@ package org.example.entity;
 
 
 import lombok.*;
-import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,18 +25,13 @@ public class Product {
     @NotBlank
     private String name;
 
-//    @NotNull
     @Positive
     private Integer price;
 
     @NotNull
-    private String description;
-
-    @NotNull
     @Positive
-    private String weight ;
+    private String weight;
 
-
-
-
+    @ManyToMany(mappedBy = "orders")
+    private List<Order> orders = new ArrayList<>();
 }

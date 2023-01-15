@@ -4,15 +4,16 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
-@javax.persistence.Table (name = "t_table")
+@javax.persistence.Table(name = "customer")
 @Entity
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Table {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,13 @@ public class Table {
     @NotBlank
     private String name;
 
-//    @NotBlank
-    private Integer capacity;
+    @NotBlank
+    private String phoneNumber;
 
+    @NotBlank
+    private String address;
+
+    @OneToMany(cascade = {CascadeType.ALL},
+            mappedBy = "customer")
+    private List<Order> orders;
 }

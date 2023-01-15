@@ -7,8 +7,12 @@ import org.hibernate.envers.Audited;
 import javax.persistence.*;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -23,29 +27,25 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @FutureOrPresent
+    @Column(name ="start_date" )
+    private LocalDateTime dateStart;
 
-    @PastOrPresent(message = "Please check the date")
-    @Column(name = "order_date")
-    private LocalDateTime orderDate;
+    @NotBlank
+    private String phoneNumber;
 
-    @PastOrPresent(message = "Please check the date")
-    @Column(name = "order_completed")
-    private LocalDateTime orderCompleted;
+    @NotBlank
+    private String address;
 
-//    @ManyToOne
-//    @Column(name = "table_id" )
-//    private org.example.entity.Table table;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Customer customer;
 
 
-
-//  @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "order")
-//  @Builder.Default
-//    private List<Product> products = new ArrayList<>();
-
-//
-//  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-//    @JoinTable(name = "order_services",
-//            joinColumns = {@JoinColumn(name= "chef_id", referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
+  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "order_services",
+            joinColumns = {@JoinColumn(name= "product_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
+    @Builder.Default
+    private Set<Order> orders = new HashSet<>();
 
  }
