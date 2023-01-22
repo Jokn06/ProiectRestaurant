@@ -28,7 +28,7 @@ public class Order {
     private Integer id;
 
     @FutureOrPresent
-    @Column(name ="start_date" )
+    @Column(name = "start_date")
     private LocalDateTime dateStart;
 
     @NotBlank
@@ -41,11 +41,11 @@ public class Order {
     private Customer customer;
 
 
-  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "order_services",
-            joinColumns = {@JoinColumn(name= "product_id", referencedColumnName = "id")},
+            joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "order_id", referencedColumnName = "id")})
     @Builder.Default
     private Set<Order> orders = new HashSet<>();
 
- }
+}

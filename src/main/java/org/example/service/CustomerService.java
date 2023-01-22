@@ -3,7 +3,6 @@ package org.example.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.entity.Customer;
-import org.example.entity.User;
 import org.example.exception.BusinessException;
 import org.example.mapper.CustomerMapper;
 import org.example.model.customer.CustomerRequest;
@@ -46,9 +45,9 @@ public class CustomerService {
         return customerMapper.map(customer);
     }
 
-    public void updateCustomer(Integer id, CustomerRequest customerRequest) {
+    public void updateCustomer( CustomerRequest customerRequest) {
         Customer customerToUpdate = customerRepository.findById(customerRequest.getId()).orElseThrow(
-                () -> new BusinessException(String.format("Customer with id: %s is not found", id))
+                () -> new BusinessException(String.format("Customer with id: %s is not found", customerRequest.getId()))
         );
         customerToUpdate.setName(customerRequest.getName());
         customerToUpdate.setAddress(customerRequest.getAddress());

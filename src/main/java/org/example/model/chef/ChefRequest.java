@@ -31,7 +31,9 @@ public class ChefRequest {
     @NotBlank
     private String phoneNumber;
 
-//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+
     @Past(message = "Hire date must be less that today")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDateTime hireDate;
 }

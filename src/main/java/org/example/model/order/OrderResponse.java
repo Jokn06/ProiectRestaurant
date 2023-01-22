@@ -1,8 +1,11 @@
 package org.example.model.order;
 
 import lombok.Data;
+import org.example.entity.Customer;
 
+import javax.persistence.Column;
 import javax.persistence.Table;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
@@ -11,12 +14,10 @@ public class OrderResponse {
 
     private Integer id;
 
-    @NotBlank
-    private LocalDateTime orderDate;
+    private LocalDateTime dateStart;
 
-    @NotBlank
-    private LocalDateTime orderCompleted;
-    
-    @NotBlank
-    private Table table;
+    private String phoneNumber;
+
+    private String address;
+    private Customer customer;
 }

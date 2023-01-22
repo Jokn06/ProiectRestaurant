@@ -4,6 +4,11 @@ h1 {
     font-size: 80px;
 }
 
+form.comanda {
+    text-align: right;
+    margin: 10px;
+}
+
 form {
     text-align: center;
     color: whitesmoke;
@@ -64,3 +69,4 @@ h4.textA {
     text-align: -moz-center;
     color: aliceblue;
 }
+

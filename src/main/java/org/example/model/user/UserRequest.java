@@ -16,13 +16,9 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class UserRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
     private String name;
 
-    @Column
     private String password;
 }

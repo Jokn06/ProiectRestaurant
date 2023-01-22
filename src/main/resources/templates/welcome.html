@@ -21,42 +21,62 @@
 
 <body>
 <div class="background-image"></div>
-
-
 <br>
 <br>
 <br>
 <h1 class="titlu"> Jack's Restaurant </h1>
 <br>
 <br>
-
 <br><br><br><br><br>
 <form th:action="@{/home}">
-    <label for="text">Daca sunteti client, va rugam selectati butonul sunt Client ! :): </label>
+    <label >Daca sunteti client, va rugam selectati butonul sunt Client ! :): </label>
     <br>
     <input type="submit" value="Sunt Client">
     <br>
 </form>
 <br>
 <br>
-<br><br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<form3 action="fisier" method="post">
-    <label for="text">Introduceti numele: </label>
-    <input type="text" name="Administrator" id="text" placeholder="Administrator" required >
-    <br>
-    <label for="parola"> Introduceti parola : </label>
-    <input type="password" name="parola" id="parola" placeholder="Parola" required>
-    <br>
-    <input type="submit" value="Log In">
-    <br>
-    <br>
-    <br>
-</form3>
+
+<!--<form3 th:action="fisier" method="post">-->
+<!--    <label for="text">Introduceti numele: </label>-->
+<!--    <input type="text" name="Administrator" id="text" placeholder="Administrator" required >-->
+<!--    <br>-->
+<!--    <label for="parola"> Introduceti parola : </label>-->
+<!--    <input type="password" name="parola" id="parola" placeholder="Parola" required>-->
+<!--    <br>-->
+<!--    <input type="submit" value="Log In">-->
+<!--    -->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--</form3>-->
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center font-weight-bold mb-4">Administrator</h5>
+                    <form th:action="@{/welcome}" th:object="${userLoginRequest}" method="post">
+                        <div class="form-group">
+                            <input type="text" th:field="*{name}" placeholder="Enter name"
+                                   class="form-control col-4 mb-4"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" th:field="*{password}" placeholder="Enter password"
+                                   class="form-control col-4 mb-4"/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                        </div>
+                    </form>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 </body>

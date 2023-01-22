@@ -5,7 +5,9 @@ import org.example.entity.Customer;
 import org.example.entity.User;
 import org.example.exception.BusinessException;
 import org.example.mapper.UserMapper;
+import org.example.model.user.UserDetailSession;
 import org.example.model.user.UserRequest;
+import org.example.model.user.UserRequestToLogIn;
 import org.example.model.user.UserResponse;
 import org.example.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,8 @@ public class UserService {
     private final UserRepository userRepository;
 
     private final UserMapper userMapper;
+
+    private final UserDetailSession userDetailSession;
 
     public UserResponse createUser(UserRequest userRequest) {
         User user = userMapper.map(userRequest);
@@ -50,5 +54,22 @@ public class UserService {
         userRepository.delete(user);
     }
 
+    public UserResponse getUserByName(String name) {
+        User user = userRepository.findByName(name);
+        if (user == null) {
+            throw new RuntimeException("User not found");
+        }
+        UserResponse userResponse = userMapper.map(user);
+        userDetailSession.setUser(user);
+        return userResponse;
+    }
 
+    public void login(UserRequestToLogIn user) {
+        UserResponse userResponse = getUserByName(user.getName());
+        if (!userResponse.getPassword().equals(user.getPassword())) {
+            throw new RuntimeException("Invalid password");
+        }
+        userDetailSession.setName(userResponse.getName());
+        userDetailSession.setPassword(userResponse.getPassword());
+    }
 }

@@ -8,6 +8,7 @@ import org.example.mapper.ChefMapper;
 import org.example.model.chef.ChefRequest;
 import org.example.model.chef.ChefResponse;
 import org.example.repository.ChefRepository;
+import org.example.repository.ChefRepositoryAdmin;
 import org.example.repository.MyRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ import java.util.List;
 @Transactional
 public class ChefService {
 
+    private final ChefRepositoryAdmin chefRepositoryAdmin;
     private final ChefRepository chefRepository;
 
     private final ChefMapper chefMapper;
@@ -43,6 +45,10 @@ public class ChefService {
 
     public List<ChefResponse> allChefs() {
         return chefMapper.map(chefRepository.findAll());
+    }
+
+    public List<ChefResponse> allAdminChef(){
+        return chefMapper.map(chefRepositoryAdmin.findAll());
     }
 
     public ChefResponse findById(Integer id) {

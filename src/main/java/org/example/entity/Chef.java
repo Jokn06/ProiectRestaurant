@@ -35,11 +35,11 @@ public class Chef {
     @NotBlank
     private String phoneNumber;
 
-//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+
     @Past(message = "Hire date must be less that today")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDateTime hireDate;
 
-//    @OneToMany
-//    private List<Order> orders;
 
 }

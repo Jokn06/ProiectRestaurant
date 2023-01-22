@@ -22,13 +22,6 @@
 
 <br><br>
 
-<!--<nav2>-->
-<!--    <a href="home.html">Home</a>-->
-<!--    <a href="meniu.html">Meniu</a>-->
-<!--    <a href="mese.html">Mese </a>-->
-<!--    <a href="chef.html">Bucatari</a>-->
-<!--    <a href="contact.html">Contact</a>-->
-<!--</nav2>-->
 
 <ul class="nav nav-pills nav-justified">
     <li class="nav-item">
@@ -43,7 +36,7 @@
     </li>
 
     <li class="nav-item">
-        <form th:action="@{/meniu}">
+        <form th:action="@{/product/allProducts}">
             <button class="nav-link active"
                     style="background-color:transparent;
                     font-weight: bold;
@@ -53,19 +46,9 @@
         </form>
     </li>
 
-    <li class="nav-item">
-        <form th:action="@{/mese}">
-            <button class="nav-link active"
-                    style="background-color:transparent;
-                    font-weight: bold;
-                    font-size: x-large;"
-                    aria-current="page"> Mese
-            </button>
-        </form>
-    </li>
 
     <li class="nav-item">
-        <form th:action="@{/bucatari}">
+        <form th:action="@{/chef/allChefs}">
             <button class="nav-link active"
                     style="background-color:transparent;
                     font-weight: bold;

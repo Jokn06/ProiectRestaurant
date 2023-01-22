@@ -37,9 +37,9 @@ public class CustomerController {
     }
 
 
-    @PatchMapping("update/{id}")
-    public void updateCustomerById(@PathVariable Integer id, @RequestBody @Valid CustomerRequest customerRequest) {
-        customerService.updateCustomer(id, customerRequest);
+    @PatchMapping("update")
+    public void updateCustomer(@RequestBody @Valid CustomerRequest customerRequest) {
+        customerService.updateCustomer( customerRequest);
     }
 
     @DeleteMapping("{id}")

@@ -37,7 +37,7 @@ public class ProductService {
     }
 
     public ProductResponse findById(Integer id) {
-        Product product = productRepository.findById(id).orElseThrow(() -> new BusinessException(String.format("The product.html with id: %s not exist", id)));
+        Product product = productRepository.findById(id).orElseThrow(() -> new BusinessException(String.format("The allProducts.html with id: %s not exist", id)));
         return productMapper.map(product);
     }
 
@@ -53,30 +53,41 @@ public class ProductService {
             productResponse.setId(product.getId());
             productResponse.setPrice(product.getPrice());
             productResponse.setName(product.getName());
-//            productResponse.setDescription(product.getDescription());
             productResponse.setWeight(product.getWeight());
             productListForResponse.add(productResponse);
         }
         return productListForResponse;
     }
 
+
+    public void updateProduct(ProductRequest productRequest) {
+        Product productToUpdate = productRepository.findById(productRequest.getId()).orElseThrow(
+                () -> new BusinessException(
+                        String.format("The product with id: %s not exist", productRequest.getId())
+                )
+        );
+        productToUpdate.setName(productRequest.getName());
+        productToUpdate.setWeight(productRequest.getWeight());
+        productToUpdate.setPrice(productRequest.getPrice());
+    }
+
     public void updateProductName(UpdateName updateName) {
         Product productToUpdate = productRepository.findById(updateName.getId()).orElseThrow(()
-                -> new BusinessException(String.format("The product.html with id: %s not exist! ", updateName.getId()))
+                -> new BusinessException(String.format("The allProducts.html with id: %s not exist! ", updateName.getId()))
         );
         productToUpdate.setName(updateName.getName());
     }
 
     public void updateProductPrice(RequestUpdatePrice requestUpdatePrice) {
         Product productToUpdate = productRepository.findById(requestUpdatePrice.getId()).orElseThrow(()
-                -> new BusinessException(String.format("The product.html with id: %s not exist!", requestUpdatePrice.getId()))
+                -> new BusinessException(String.format("The allProducts.html with id: %s not exist!", requestUpdatePrice.getId()))
         );
         productToUpdate.setPrice(requestUpdatePrice.getPrice());
     }
 
     public void deleteProduct(Integer id) {
         Product productToDelete = productRepository.findById(id).orElseThrow(()
-                -> new BusinessException(String.format("The product.html with id: %s not exist", id))
+                -> new BusinessException(String.format("The allProducts.html with id: %s not exist", id))
         );
         productRepository.delete(productToDelete);
     }

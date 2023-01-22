@@ -1,10 +1,10 @@
 package org.example.entity;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
 import javax.persistence.*;
-import javax.validation.constraints.FutureOrPresent;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
+@ToString
 public class User {
 
     @Id
