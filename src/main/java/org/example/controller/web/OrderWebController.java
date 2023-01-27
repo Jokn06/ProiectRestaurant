@@ -2,6 +2,7 @@ package org.example.controller.web;
 
 import lombok.RequiredArgsConstructor;
 import org.example.model.order.CreateOrderRequest;
+import org.example.model.order.CreateOrderTwoRequest;
 import org.example.model.order.OrderRequest;
 import org.example.service.OrderService;
 import org.example.utils.IdRequest;
@@ -28,21 +29,37 @@ public class OrderWebController {
         return "adminOrderPage";
     }
 
-    @PostMapping("order/createNewOrder")
-    public String createOrder(@ModelAttribute(value = "createOrderRequest")
-                                  CreateOrderRequest request,
-                                Model model) {
+    @PostMapping("/adminOrderPage/create-new-order")
+    public String createNewOrder(@ModelAttribute(value = "createOrderRequest") CreateOrderRequest request,
+                                 Model model) {
         OrderRequest orderRequest = OrderRequest.builder()
-                .id(request.getId())
-                .customer(request.getCustomer())
-                .dateStart(request.getDateStart())
-                .address(request.getAddress())
-                .phoneNumber(request.getPhoneNumber())
+//                .customerId(request.getCustomerId())
+//                .phoneNumber(request.getPhoneNumber())
+//                .address(request.getAddress())
+//                .dateStart(request.getDateStart())
+                .orders(request.getOrders())
                 .build();
         orderService.createOrder(orderRequest);
 
-        model.addAttribute("orders", orderService.getAllOrders());
-        return "adminOrderPage";
+        model.addAttribute("orders", orderService.findAll());
+        return "createOrderTwo";
+    }
+
+    @PostMapping("/adminOrderPage/create-new-ordertwo")
+    public String createNewOrderTwo(@ModelAttribute(value = "createOrderRequest") CreateOrderTwoRequest request,
+                                    Model model) {
+        OrderRequest orderRequest = OrderRequest.builder()
+//                .customerId(request.getCustomerId())
+                .phoneNumber(request.getPhoneNumber())
+                .address(request.getAddress())
+//                .name(request.getName())
+//                .dateStart(request.getDateStart())
+//                .orders(request.getOrders())
+                .build();
+        orderService.createOrder(orderRequest);
+
+        model.addAttribute("orders", orderService.findAll());
+        return "/adminOrderPage";
     }
 
     @GetMapping("/adminOrderPage/goToCreateOrderPage")

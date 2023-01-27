@@ -7,16 +7,13 @@ import javax.persistence.Column;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class CreateOrderRequest {
-    private Integer id;
 
-    private LocalDateTime dateStart;
+    private Integer customerId;
 
-    private String phoneNumber;
-
-    private String address;
-
-    private Customer customer;
+    private List<Integer> orders;
 }
+

@@ -48,4 +48,8 @@ public class OrderService {
         Order order = orderRepository.findById(id).orElseThrow(() -> new BusinessException("Cannot find the order with ID" + id));
         orderRepository.delete(order);
     }
+
+    public List<OrderResponse> findAll() {
+        return orderMapper.map(orderRepository.findAllByOrderByDateStartDesc());
+    }
 }
