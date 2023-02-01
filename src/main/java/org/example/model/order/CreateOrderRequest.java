@@ -12,8 +12,6 @@ import java.util.List;
 @Data
 public class CreateOrderRequest {
 
-    private Integer customerId;
-
     private List<Integer> orders;
 }
 

@@ -32,6 +32,6 @@ public class Product {
     @Positive
     private String weight;
 
-    @ManyToMany(mappedBy = "orders")
+    @ManyToMany(mappedBy = "products")
     private List<Order> orders = new ArrayList<>();
 }

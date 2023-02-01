@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,15 +20,13 @@ public class OrderResponse {
 
     private Integer id;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime dateStart;
+    private String customerName;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDate dateStart;
 
     private String phoneNumber;
 
     private String address;
 
-
-    private CustomerResponseForOrder customer;
-
-    private final Set<ProductResponse> products = new HashSet<>();
 }

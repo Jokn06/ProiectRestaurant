@@ -87,22 +87,23 @@
 <form action="#" th:action="@{/adminOrderPage/create-new-ordertwo}" method="post">
   <table class="table table-dark">
     <tr>
-      <td> Customer :</td>
-      <td><input type="text" name="Name" placeholder="Client" required></td>
-    </tr>
-    <tr>
-      <td> Address :</td>
-      <td><input type="text" name="Address" placeholder="Adresa"required></td>
+      <td> Ora comenzii :</td>
+      <td><input type="date" name="dateStart"  required></td>
     </tr>
     <tr>
       <td> Phone number :</td>
       <td><input type="text" name="phoneNumber" placeholder="Numar telefon" required></td>
     </tr>
-<!--    <tr>-->
-<!--      <td> Ora comenzii :</td>-->
-<!--      <td><input type="datetime-local" name="Ora comenzii" placeholder="Ora comenzii" required></td>-->
-<!--    </tr>-->
+    <tr>
+      <td> Address :</td>
+      <td><input type="text" name="address" placeholder="Adresa"required></td>
+    </tr>
+    <tr>
+      <td> Customer :</td>
+      <td><input type="text" name="customerName" placeholder="Client" required></td>
+    </tr>
   </table>
+  <input type="hidden" name="productsId" th:number="${products}">
   <button type="submit" value="Create" class="btn btn-success">Create</button>
 </form>
 

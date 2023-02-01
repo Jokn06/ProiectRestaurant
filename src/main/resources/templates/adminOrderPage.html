@@ -90,19 +90,19 @@
             <th>Nume</th>
             <th>Adresa</th>
             <th>Telefon</th>
-            <th>Ora Comenzii</th>
+            <th>Data Comenzii</th>
+            <th></th>
+            <th></th>
         </tr>
+
         </thead>
         <tbody>
         <tr th:each="order : ${orders}">
             <td><span th:text="${order.id}"> Id </span></td>
-            <td><span th:text="${order.customer}"> Name </span></td>
+            <td><span th:text="${order.customerName}"> Name </span></td>
             <td><span th:text="${order.address}"> Address </span></td>
             <td><span th:text="${order.phoneNumber}"> Phone Number </span></td>
-            <form th:action="@{/adminOrderPage/order}"  method="post">
-                <input type="hidden" name="id" th:value="${order.id}">
-                <button type="submit" class="btn btn-info">Comanda</button>
-            </form>
+            <td><span th:text="${order.dateStart}" > </span> </td>
 
             <td>
                 <form th:action="@{/adminOrderPage/goToUpdateOrderPage}">

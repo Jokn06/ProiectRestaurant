@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import java.util.List;
 
-//@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring")
 @ComponentScan
 public interface OrderMapper {
 

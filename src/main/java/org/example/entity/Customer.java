@@ -28,7 +28,4 @@ public class  Customer {
     @NotBlank
     private String address;
 
-    @OneToMany(cascade = {CascadeType.ALL},
-            mappedBy = "customer")
-    private List<Order> orders;
 }
