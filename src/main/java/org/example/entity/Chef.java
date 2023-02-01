@@ -39,7 +39,7 @@ public class Chef {
     @Past(message = "Hire date must be less that today")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDateTime hireDate;
+    private LocalDate hireDate;
 
 
 }

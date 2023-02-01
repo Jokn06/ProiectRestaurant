@@ -60,12 +60,12 @@
   </li>
 
   <li class="nav-item">
-    <form th:action="@{/adminCustomer}">
+    <form th:action="@{/adminCustomerPage/allCustomers}">
       <button class="nav-link active"
               style="background-color:transparent;
                     font-weight: bold;
                     font-size: x-large;"
-              aria-current="page"> Rezervari
+              aria-current="page"> Clienti
       </button>
     </form>
   </li>
@@ -101,7 +101,7 @@
     </tr>
     <tr>
       <td> Hire date :</td>
-      <td><input type="datetime-local" name="hireDate" placeholder="Hire date" required></td>
+      <td><input type="date" name="hireDate" placeholder="Hire date" required></td>
     </tr>
   </table>
   <button type="submit" value="Create" class="btn btn-success">Update</button>

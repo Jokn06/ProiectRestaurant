@@ -12,7 +12,7 @@ public class ChefResponse {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private LocalDateTime hireDate;
+    private LocalDate hireDate;
 
 
 
